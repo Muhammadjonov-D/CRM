@@ -34,7 +34,6 @@ public class TeacherService(IUnitOfWork unitOfWork) : ITeacherService
         existTeacher.LastName = teacher.LastName;
         existTeacher.PhoneNumber = teacher.PhoneNumber;
         existTeacher.Password = teacher.Password;
-        existTeacher.Groups = teacher.Groups;
 
         existTeacher.UpdatedByUserId = HttpContextHelper.UserId;
         await unitOfWork.Teachers.UpdateAsync(existTeacher);

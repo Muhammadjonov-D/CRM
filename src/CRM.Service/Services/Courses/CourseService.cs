@@ -30,7 +30,6 @@ public class CourseService(IUnitOfWork unitOfWork) : ICourseService
         existCourse.Name = course.Name;
         existCourse.Description = course.Description;
         existCourse.Price = course.Price;
-        existCourse.Groups = course.Groups;
 
         existCourse.UpdatedByUserId = HttpContextHelper.UserId;
         await unitOfWork.Courses.UpdateAsync(existCourse);
