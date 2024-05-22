@@ -1,5 +1,4 @@
-﻿using CRM.Domain.Entities;
-using CRM.WebApi.Models.Teachers;
+﻿using CRM.WebApi.Models.Teachers;
 using FluentValidation;
 
 namespace CRM.WebApi.Validators.Teachers;

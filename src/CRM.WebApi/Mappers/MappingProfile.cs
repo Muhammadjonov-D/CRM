@@ -13,7 +13,7 @@ namespace CRM.WebApi.Mappers;
 
 public class MappingProfile : Profile
 {
-    public MappingProfile() 
+    public MappingProfile()
     {
         CreateMap<AttendanceViewModel, Attendance>().ReverseMap();
         CreateMap<Attendance, AttendanceCreateModel>().ReverseMap();

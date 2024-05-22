@@ -12,7 +12,7 @@ public class GroupApiService
     (IMapper mapper,
     IGroupService groupService,
     GroupCreateModelValidator createModelValidator,
-    GroupUpdateModelValidator updateModelValidator): IGroupApiService
+    GroupUpdateModelValidator updateModelValidator) : IGroupApiService
 {
     public async ValueTask<GroupViewModel> PostAsync(GroupCreateModel createModel)
     {

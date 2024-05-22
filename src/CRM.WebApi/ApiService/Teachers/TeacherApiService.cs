@@ -12,7 +12,7 @@ public class TeacherApiService
     (IMapper mapper,
     ITeacherService teacherService,
     TeacherCreateModelValidator createModelValidator,
-    TeacherUpdateModelValidator updateModelValidator): ITeacherApiService
+    TeacherUpdateModelValidator updateModelValidator) : ITeacherApiService
 {
     public async ValueTask<TeacherViewModel> PostAsync(TeacherCreateModel createModel)
     {

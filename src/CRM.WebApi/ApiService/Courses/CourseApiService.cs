@@ -12,7 +12,7 @@ public class CourseApiService
     (IMapper mapper,
     ICourseService courseService,
     CourseCreateModelValidator createModelValidator,
-    CourseUpdateModelValidator updateModelValidator): ICourseApiService
+    CourseUpdateModelValidator updateModelValidator) : ICourseApiService
 {
     public async ValueTask<CourseViewModel> PostAsync(CourseCreateModel createModel)
     {
@@ -32,7 +32,7 @@ public class CourseApiService
 
     public async ValueTask<bool> DeleteAsync(long id)
     {
-        return await courseService.DeleteAsync(id); 
+        return await courseService.DeleteAsync(id);
     }
 
     public async ValueTask<CourseViewModel> GetAsync(long id)

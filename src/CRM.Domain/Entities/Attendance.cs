@@ -1,6 +1,5 @@
 ﻿using CRM.Domain.Commons;
 using CRM.Domain.Enums;
-using System.Text.RegularExpressions;
 
 namespace CRM.Domain.Entities;
 

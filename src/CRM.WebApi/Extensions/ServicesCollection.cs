@@ -78,5 +78,5 @@ public static class ServicesCollection
 
         services.AddTransient<StudentGroupUpdateModelValidator>();
         services.AddTransient<StudentGroupUpdateModelValidator>();
-    }   
+    }
 }

@@ -3,7 +3,6 @@ using CRM.Domain.Entities;
 using CRM.Service.Configurations;
 using CRM.Service.Services.Students;
 using CRM.WebApi.Extensions;
-using CRM.WebApi.Models.StudentGroups;
 using CRM.WebApi.Models.Students;
 using CRM.WebApi.Validators.Students;
 
@@ -13,7 +12,7 @@ public class StudentApiService
     (IMapper mapper,
     IStudentService studentService,
     StudentCreateModelValidator createModelValidator,
-    StudentUpdateModelValidator updateModelValidator): IStudentApiService
+    StudentUpdateModelValidator updateModelValidator) : IStudentApiService
 {
     public async ValueTask<StudentViewModel> PostAsync(StudentCreateModel createModel)
     {

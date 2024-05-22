@@ -49,16 +49,16 @@ public class UnitOfWork : IUnitOfWork
 
     public async ValueTask CommitTransactionAsync()
     {
-        await transaction.CommitAsync();    
+        await transaction.CommitAsync();
     }
 
     public void Dispose()
     {
-        GC.SuppressFinalize(this);  
+        GC.SuppressFinalize(this);
     }
 
     public async ValueTask<bool> SaveAsync()
     {
-        return await context.SaveChangesAsync()>0;
+        return await context.SaveChangesAsync() > 0;
     }
 }
