@@ -17,6 +17,8 @@ public class UnitOfWork : IUnitOfWork
     public IRepository<Group> Groups { get; }
 
     public IRepository<Lesson> Lessons { get; }
+    public IRepository<Payment> Payments { get; }
+    public IRepository<ExamGrade> ExamGrades { get; }
 
     public IRepository<Student> Students { get; }
 
@@ -35,7 +37,9 @@ public class UnitOfWork : IUnitOfWork
         Lessons = new Repository<Lesson>(this.context);
         Students = new Repository<Student>(this.context);
         StudentGroups = new Repository<StudentGroup>(this.context);
-        Teachers = new Repository<Teacher>(this.context);
+        Teachers =new Repository<Teacher>(this.context);
+        ExamGrades = new Repository<ExamGrade>(this.context);
+        Payments =new Repository<Payment>(this.context);
     }
 
     public async ValueTask BeginTransactionAsync()

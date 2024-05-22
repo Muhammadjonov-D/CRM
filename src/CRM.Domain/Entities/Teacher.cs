@@ -8,5 +8,4 @@ public class Teacher : Auditable
     public string LastName { get; set; }
     public string PhoneNumber { get; set; }
     public string Password { get; set; }
-    public IEnumerable<Group> Groups { get; set; }
 }

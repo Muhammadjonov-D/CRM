@@ -10,6 +10,8 @@ public interface IUnitOfWork : IDisposable
     IRepository<Exam> Exams { get; }
     IRepository<Group> Groups { get; }
     IRepository<Lesson> Lessons { get; }
+    IRepository<ExamGrade> ExamGrades { get; }
+    IRepository<Payment> Payments { get; }
     IRepository<Student> Students { get; }
     IRepository<StudentGroup> StudentGroups { get; }
     IRepository<Teacher> Teachers { get; }

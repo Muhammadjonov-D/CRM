@@ -36,7 +36,6 @@ public class ExamService(IUnitOfWork unitOfWork) : IExamService
 
         existExam.Name = exam.Name;
         existExam.GroupId = exam.GroupId;
-        existExam.ExamREsult = exam.ExamREsult;
 
         existExam.UpdatedByUserId = HttpContextHelper.UserId;
         await unitOfWork.Exams.UpdateAsync(existExam);
