@@ -35,7 +35,7 @@ public class UnitOfWork : IUnitOfWork
         Lessons = new Repository<Lesson>(this.context);
         Students = new Repository<Student>(this.context);
         StudentGroups = new Repository<StudentGroup>(this.context);
-        Teachers =new Repository<Teacher>(this.context);
+        Teachers = new Repository<Teacher>(this.context);
     }
 
     public async ValueTask BeginTransactionAsync()
@@ -45,16 +45,16 @@ public class UnitOfWork : IUnitOfWork
 
     public async ValueTask CommitTransactionAsync()
     {
-        await transaction.CommitAsync();    
+        await transaction.CommitAsync();
     }
 
     public void Dispose()
     {
-        GC.SuppressFinalize(this);  
+        GC.SuppressFinalize(this);
     }
 
     public async ValueTask<bool> SaveAsync()
     {
-        return await context.SaveChangesAsync()>0;
+        return await context.SaveChangesAsync() > 0;
     }
 }

@@ -13,7 +13,7 @@ public class TeacherService(IUnitOfWork unitOfWork) : ITeacherService
     public async ValueTask<Teacher> CreateAsync(Teacher teacher)
     {
         var existTeacher = await unitOfWork.Teachers.SelectAsync(
-            t => t.FirstName.ToLower() == teacher.FirstName.ToLower() 
+            t => t.FirstName.ToLower() == teacher.FirstName.ToLower()
             && t.LastName.ToLower() == teacher.LastName.ToLower());
         if (existTeacher is not null)
             throw new AlreadyExistException("This teacher is already exist");
@@ -27,8 +27,8 @@ public class TeacherService(IUnitOfWork unitOfWork) : ITeacherService
 
     public async ValueTask<Teacher> UpdateAsync(long id, Teacher teacher)
     {
-       var existTeacher = await unitOfWork.Teachers.SelectAsync(t => t.Id == id && !t.IsDeleted)
-            ?? throw new NotFoundException($"Teacher is not found with this ID = {id}");
+        var existTeacher = await unitOfWork.Teachers.SelectAsync(t => t.Id == id && !t.IsDeleted)
+             ?? throw new NotFoundException($"Teacher is not found with this ID = {id}");
 
         existTeacher.FirstName = teacher.FirstName;
         existTeacher.LastName = teacher.LastName;
@@ -72,6 +72,6 @@ public class TeacherService(IUnitOfWork unitOfWork) : ITeacherService
                teacher.FirstName.ToLower().Contains(search.ToLower()) ||
                teacher.LastName.ToLower().Contains(search.ToLower()));
 
-       return await teachers.ToPaginateAsQueryable(@params).ToListAsync();
+        return await teachers.ToPaginateAsQueryable(@params).ToListAsync();
     }
 }

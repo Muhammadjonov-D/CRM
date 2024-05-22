@@ -1,6 +1,4 @@
-﻿using CRM.Domain.Entities;
-
-namespace CRM.WebApi.Models.StudentGroups;
+﻿namespace CRM.WebApi.Models.StudentGroups;
 
 public class StudentGroupCreateModel
 {

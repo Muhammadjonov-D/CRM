@@ -12,7 +12,7 @@ public class ExamApiService
     (IMapper mapper,
     IExamService examService,
     ExamCreateModelValidator createModelValidator,
-    ExamUpdateModelValidator updateModelValidator): IExamApiService
+    ExamUpdateModelValidator updateModelValidator) : IExamApiService
 {
     public async ValueTask<ExamViewModel> PostAsync(ExamCreateModel createModel)
     {
@@ -27,7 +27,7 @@ public class ExamApiService
     {
         await updateModelValidator.EnsureValidatedAsync(updateModel);
         var mappedExam = mapper.Map<Exam>(updateModel);
-        var updatedExam = await examService.UpdateAsync(id ,mappedExam);
+        var updatedExam = await examService.UpdateAsync(id, mappedExam);
         return mapper.Map<ExamViewModel>(updatedExam);
     }
 
@@ -45,6 +45,6 @@ public class ExamApiService
     public async ValueTask<IEnumerable<ExamViewModel>> GetAllAsync(PaginationParams @params, Filter filter, string search = null)
     {
         var exams = await examService.GetAllAsync(@params, filter, search);
-        return mapper.Map<IEnumerable<ExamViewModel>>(exams);   
+        return mapper.Map<IEnumerable<ExamViewModel>>(exams);
     }
 }

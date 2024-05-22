@@ -23,7 +23,7 @@ public class LessonService(IUnitOfWork unitOfWork) : ILessonService
         var createdLesson = await unitOfWork.Lessons.InsertAsync(lesson);
         await unitOfWork.SaveAsync();
 
-        return  createdLesson;
+        return createdLesson;
     }
 
     public async ValueTask<Lesson> UpdateAsync(long id, Lesson lesson)
@@ -52,7 +52,7 @@ public class LessonService(IUnitOfWork unitOfWork) : ILessonService
 
         await unitOfWork.Lessons.DeleteAsync(existLesson);
         await unitOfWork.SaveAsync();
-        return true;    
+        return true;
     }
 
     public async ValueTask<Lesson> GetByIdAsync(long id)

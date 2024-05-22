@@ -12,7 +12,7 @@ public class LessonApiService
     (IMapper mapper,
     ILessonService lessonService,
     LessonCreateModelValidator createModelValidator,
-    LessonUpdateModelValidator updateModelValidator): ILessonApiService
+    LessonUpdateModelValidator updateModelValidator) : ILessonApiService
 {
     public async ValueTask<LessonViewModel> PostAsync(LessonCreateModel createModel)
     {
@@ -44,6 +44,6 @@ public class LessonApiService
     public async ValueTask<IEnumerable<LessonViewModel>> GetAllAsync(PaginationParams @params, Filter filter, string search = null)
     {
         var lessons = await lessonService.GetAllAsync(@params, filter, search);
-        return mapper.Map<IEnumerable<LessonViewModel>>(lessons);   
+        return mapper.Map<IEnumerable<LessonViewModel>>(lessons);
     }
 }

@@ -23,9 +23,9 @@ public class Repository<T> : IRepository<T> where T : Auditable
 
     public async ValueTask<T> UpdateAsync(T entity)
     {
-       entity.UpdatedAt = DateTime.UtcNow;
-       set.Update(entity);
-       return await Task.FromResult(entity);
+        entity.UpdatedAt = DateTime.UtcNow;
+        set.Update(entity);
+        return await Task.FromResult(entity);
     }
 
     public async ValueTask<T> DeleteAsync(T entity)
@@ -33,7 +33,7 @@ public class Repository<T> : IRepository<T> where T : Auditable
         entity.IsDeleted = true;
         entity.DeletedAt = DateTime.UtcNow;
         set.Update(entity);
-        return await  Task.FromResult(entity);
+        return await Task.FromResult(entity);
     }
 
     public async ValueTask<T> DropAsync(T entity)
@@ -45,16 +45,16 @@ public class Repository<T> : IRepository<T> where T : Auditable
     {
         var query = set.Where(expression);
 
-        if(includes is not null)
-            foreach(var include in includes)
+        if (includes is not null)
+            foreach (var include in includes)
                 query = query.Include(include);
 
         return await query.FirstOrDefaultAsync();
     }
 
     public async ValueTask<IEnumerable<T>> SelectAsEnumerableAsync(
-        Expression<Func<T, bool>> expression = null, 
-        string[] includes = null, 
+        Expression<Func<T, bool>> expression = null,
+        string[] includes = null,
         bool isTracked = true)
     {
         var query = expression is null ? set : set.Where(expression);
@@ -69,9 +69,9 @@ public class Repository<T> : IRepository<T> where T : Auditable
         return await query.ToListAsync();
     }
 
-    public  IQueryable<T> SelectAsQueryable(
-        Expression<Func<T, bool>> expression = null, 
-        string[] includes = null, 
+    public IQueryable<T> SelectAsQueryable(
+        Expression<Func<T, bool>> expression = null,
+        string[] includes = null,
         bool isTracked = true)
     {
         var query = expression is null ? set : set.Where(expression);

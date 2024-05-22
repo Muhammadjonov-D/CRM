@@ -12,7 +12,7 @@ public class StudentGroupApiService
     (IMapper mapper,
     IStudentGroupService studentGroupService,
     StudentGroupCreateModelValidator createModelValidator,
-    StudentGroupUpdateModelValidator updateModelValidator): IStudentGroupApiService
+    StudentGroupUpdateModelValidator updateModelValidator) : IStudentGroupApiService
 {
     public async ValueTask<StudentGroupViewModel> PostAsync(StudentGroupCreateModel createModel)
     {

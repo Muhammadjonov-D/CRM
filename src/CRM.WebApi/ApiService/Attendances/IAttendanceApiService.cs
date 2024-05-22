@@ -1,5 +1,4 @@
-﻿using CRM.Service.Configurations;
-using CRM.WebApi.Models.Attendances;
+﻿using CRM.WebApi.Models.Attendances;
 
 namespace CRM.WebApi.ApiService.Attendances;
 

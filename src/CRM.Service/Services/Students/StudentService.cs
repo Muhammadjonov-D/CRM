@@ -27,16 +27,16 @@ public class StudentService(IUnitOfWork unitOfWork) : IStudentService
 
     public async ValueTask<Student> UpdateAsync(long id, Student student)
     {
-       var existStudent = await unitOfWork.Students.SelectAsync(s => s.Id == id && !s.IsDeleted)
-            ?? throw new NotFoundException($"Student is not found with this ID = {id}");
+        var existStudent = await unitOfWork.Students.SelectAsync(s => s.Id == id && !s.IsDeleted)
+             ?? throw new NotFoundException($"Student is not found with this ID = {id}");
 
         existStudent.FirstName = student.FirstName;
         existStudent.LastName = student.LastName;
         existStudent.PhoneNumber = student.PhoneNumber;
 
-        existStudent.UpdatedByUserId = HttpContextHelper.UserId;    
+        existStudent.UpdatedByUserId = HttpContextHelper.UserId;
         await unitOfWork.Students.UpdateAsync(existStudent);
-        await unitOfWork.SaveAsync();   
+        await unitOfWork.SaveAsync();
 
         return existStudent;
     }
@@ -47,7 +47,7 @@ public class StudentService(IUnitOfWork unitOfWork) : IStudentService
             ?? throw new NotFoundException($"Student is not found with this ID = {id}");
 
         await unitOfWork.Students.DeleteAsync(existStudent);
-        await unitOfWork.SaveAsync();   
+        await unitOfWork.SaveAsync();
         return true;
     }
 

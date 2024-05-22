@@ -1,5 +1,4 @@
 ﻿using CRM.Service.Configurations;
-using CRM.WebApi.Models.StudentGroups;
 using CRM.WebApi.Models.Teachers;
 
 namespace CRM.WebApi.ApiService.Teachers;
